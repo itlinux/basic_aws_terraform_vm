@@ -25,3 +25,12 @@ variable "image-size" {
 variable "se_subnet_id" {
      description = "Subnet ID"
 }
+variable "ec2_size" {
+  default = "t3.micro"
+}
+variable "instance_count" {
+  default = 2
+}
+variable "prefix" {
+  default = "remo-vm-tf"
+}
