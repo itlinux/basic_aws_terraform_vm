@@ -1,0 +1,17 @@
+= Basic AWS EC2 VM
+
+This is a basic AWS deploying Centos 7
+
+== Terraform.tfvars
+Update the terraform.tfvars.example very simple
+
+
+== SSH - keys
+The ssh keys gets generated every time, and get injected
+make the folder called keys
+
+---
+mkdir keys
+---
+
+

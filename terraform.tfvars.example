@@ -1,0 +1,5 @@
+vpc_id_fse   = "vpc-xxxxxx"
+se_subnet_id = "subnet-xxxxxx"
+image-size   = "t.micro"
+remo_sg_name = "remo_linux_sg"
+public_ip    = "true"
