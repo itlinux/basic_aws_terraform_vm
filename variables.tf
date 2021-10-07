@@ -34,3 +34,6 @@ variable "instance_count" {
 variable "prefix" {
   default = "remo-vm-tf"
 }
+variable "ssh_user" {
+  default = "centos"
+}

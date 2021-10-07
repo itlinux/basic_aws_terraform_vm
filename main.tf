@@ -15,3 +15,23 @@ resource "aws_instance" "centos" {
           team                = "SA Team"
          }
 }
+
+resource "null_resource" "terra" {
+  count = var.instance_count
+  provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      user        = var.ssh_user
+      private_key = local_file.private_key_pem.content
+      host        = aws_instance.centos[count.index].public_ip
+    }
+
+    inline = [
+      "sudo yum update -y",
+      "sudo yum install -y yum-utils git",
+      "sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo",
+      "sudo yum install -y terraform"
+    ]
+  }
+  depends_on = [aws_instance.centos]
+}
