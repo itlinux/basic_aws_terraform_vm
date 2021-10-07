@@ -1,8 +1,11 @@
 resource "aws_instance" "centos" {
-  ami                         = var.linux_ami
-  instance_type               = var.ec2_size
-  count                       = var.instance_count
-  security_groups             = [aws_security_group.remo_sg.id]
+  depends_on             = []
+  ami                    = var.linux_ami
+  instance_type          = var.ec2_size
+  count                  = var.instance_count
+  vpc_security_group_ids = [
+      aws_security_group.remo_sg.id,
+  ]
   key_name                    = aws_key_pair.generated.key_name
   associate_public_ip_address = var.public_ip
   subnet_id                   = var.se_subnet_id
