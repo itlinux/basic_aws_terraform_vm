@@ -10,9 +10,49 @@ Update the terraform.tfvars.example very simple
 The ssh keys gets generated every time, and get injected
 make the folder called keys
 
----
+----
 mkdir keys
+----
 
----
+
+=== Steps
+========
+
+Clone the repo
+----
+git clone https://github.com/itlinux/basic_aws_terraform_vm.git
+----
 
 
+cd into the repo
+----
+cd basic_aws_terraform_vm
+----
+
+Copy the var file
+----
+cp the terraform.tfvars.example to terraform.tfvars
+----
+
+Edit the files:
+----
+terraform.tfvars
+variables.tf
+----
+
+run terraform init
+----
+terraform init
+----
+
+execute terraform plan to make sure all looks good. Do not forget to login into your AWS account.
+
+----
+terraform plan
+----
+
+terraform apply
+----
+terraform apply -auto-approve
+----
+========
